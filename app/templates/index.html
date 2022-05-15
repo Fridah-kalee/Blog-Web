@@ -12,3 +12,53 @@
 
 {% endblock styles%}
 <title>Fridah`s Blog Website</title>
+{% block content %}
+<div class="jumbotron">
+
+    
+
+    <div class="card" style="width: 50rem; margin-left: 65em; margin-top: 50px;">
+        <div class="card-body">
+            {% for quote in quotesapp %}
+            <h2>
+                {{quote.quote}} once said;
+            </h2>
+
+            <h2>
+                {{quote.author}}
+            </h2>
+            <h4>
+                <b> Author:</b>{{quote.quote}}</h4>
+            </h4>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+<h1 style="margin-bottom: 40px;text-align: center;">FEATURED BLOGS</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card-deck">
+                {% for my_blog in blogs %}
+                <div class="col-md-8">
+
+                    <div class="card bg-light mb-3 styled">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h1>{{my_blog.title}}</h>
+                                <div class="card-text">
+                                    <h3>{{my_blog.blog}}</h3>
+                                    <div class="card-footer">
+                                       Created by: {{my_blog.author}} <br>
+                                       <button> <a href="/comment/{{my_blog.id}}"></a> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
