@@ -3,6 +3,13 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
 
+class Quotes:
+    def __init__(self,id,quote,author):
+        self.id=id
+        self.quote=quote
+        self.author=author
+
+
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
@@ -37,7 +44,18 @@ class Blog(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     title=db.Column(db.String(255))
     blog = db.Column(db.String)
+    author=db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
     def __repr__(self):
         return f'Blog {self.blog}'
+
+    def save_blog(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_user_blog(cls,user):
+        user_blog = Blog.query.filter_by(user = user).all()
+        return user_blog
+        
