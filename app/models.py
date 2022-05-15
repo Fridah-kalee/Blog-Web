@@ -7,7 +7,7 @@ class User(db.Model):
     username = db.Column(db.String(255),index = True)
     blogs = db.relationship('Blog',backref='user',lazy='dynamic')
     pass_secure =db.Column(db.String(255))
-    email=db.Column(db.String,Unique=True)
+    email=db.Column(db.String,unique=True)
 
     @property
     def password(self):
