@@ -1,0 +1,36 @@
+{% macro display(blogs) %}
+<!-- <div class="container-fluid" style="background-color: black !important;">
+	<div class="row">
+		{% if blogs %}
+		<div class="container">
+			{% for blog in blogs %}
+			<article class="media content-section w-100 my-3 mx-auto"  style="background-color: black !important; color:white !important; width:60vw !important;">
+				<div class="media-body">
+                         <span>
+                              <img src="{{url_for('static', filename='photos/' + blog.user.profile_pic_path) }}" alt="" class="rounded-circle article-img">
+                         </span>
+					<div class="article-metadata">
+						<a class="mr-2" href="#" style="color: aqua;" >{{ blog.user.username }}</a>
+						
+					</div>
+					<h2><a class="article-title fw-bold" href="{{url_for('main.blog', blog_id=blog.id)}}"  style="color: rgb(161, 167, 166) !important;">{{ blog.title }}</a></h2>
+					<p class="article-content">{{ post.post | truncate(150)}} <a href="{{url_for('main.blog', blog_id=blog.id)}}" style="color:yellow;"> [Read more]</a> </p>
+                         <footer class="blockquote-footer text-center" style="color:cyan;"> Posted by: {{blog.user.username}}</footer>
+								<div>
+									<span class="foot" >{{blog.comment.count()}} Comments
+
+									</span> 
+									
+								</div>
+			
+								<a href="{{url_for('main.comment',blog_id = blog.id)}}" class="btn btn-info btn-sm"> Comment</a>
+							</div>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+
+		{% endif %}
+	</div>
+</div>
+{% endmacro %} -->
