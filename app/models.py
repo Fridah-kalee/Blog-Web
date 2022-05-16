@@ -2,6 +2,7 @@ from .import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
+from datetime import datetime
 
 class Quotes:
     def __init__(self,id,quote,author):
@@ -45,6 +46,7 @@ class Blog(db.Model):
     title=db.Column(db.String(255))
     blog = db.Column(db.String)
     author=db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comment = db.relationship('Comment',backref = 'blog',lazy = "dynamic")
 
