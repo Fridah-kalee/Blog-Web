@@ -1,31 +1,23 @@
 import urllib.request,json
 from .models import Quotes
 
-get_quotes_url='http://quotes.stormconsultancy.co.uk/random.json'
+base_url = 'http://quotes.stormconsultancy.co.uk/random.json'
 
 def get_quotes():
+    get_quotes_url=base_url.format()
+
     with urllib.request.urlopen(get_quotes_url) as url:
-        get_quotes_data = url.read()
-        get_quotes_response = json.loads(get_quotes_data)
+        quotes_data=url.read()
+        quotes_response=json.loads(quotes_data)
 
-        quote_results = None
+        quotes_object=None
+        if quotes_response:
+            id = quotes_response.get('id')
+            quote = quotes_response.get('quote')
+            author = quotes_response.get('author')
+           
 
-        if get_quotes_response:
-            quote_result_list=get_quotes_response
-            quote_results=process_results(quotes_result_list)
+            quotes_object= Quotes(id,quote,author)
+            print(quotes_object)
 
-    return quote_results
-
-def process_results(quotes_result_list):
-
-    quote_result = []
-
-    id = quotes_result_list.get('id')
-    quote = quotes_result_list.get('quote')
-    author = quotes_result_list.get('author')
-
-    if quote:
-        my_quote=Quote(id,author,quote)
-        quote_result.append('my_quote')
-
-    return quote_result    
+    return quotes_object    

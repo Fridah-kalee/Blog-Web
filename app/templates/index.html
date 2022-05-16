@@ -1,64 +1,29 @@
 {% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro %}
 
-{% block styles%}
-{{super()}}
 
-<link href="https://fonts.googleapis.com/css?family=Calligraffitti|Kalam|Lacquer&display=swap" rel="stylesheet">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-{% endblock styles%}
-<title>Fridah`s Blog Website</title>
-{% block content %}
-<div class="jumbotron">
-
-    
-
-    <div class="card" style="width: 50rem; margin-left: 65em; margin-top: 50px;">
-        <div class="card-body">
-            {% for quote in quotesapp %}
-            <h2>
-                {{quote.quote}} once said;
-            </h2>
-
-            <h2>
-                {{quote.author}}
-            </h2>
-            <h4>
-                <b> Author:</b>{{quote.quote}}</h4>
-            </h4>
-            {% endfor %}
-        </div>
+        {% block content%}
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="card" style="margin-top: 50px;align-items: center;"></div>
+    <div class="px-4 py-5 my-5 text-center">
+        <div class="col-lg-6 mx-auto">
+			<figure class="text-center text-pink">
+				<blockquote class="blockquote">
+					<p>{{ quotes.quote }}</p>
+				</blockquote>
+				<figcaption class="blockquote-footer">
+					<cite title="Source Title"> ~~{{quotes.author}}</cite>
+				</figcaption>
+			</figure>
+		</div>
     </div>
-
 </div>
-<h1 style="margin-bottom: 40px;text-align: center;">FEATURED BLOGS</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card-deck">
-                {% for my_blog in blogs %}
-                <div class="col-md-8">
-
-                    <div class="card bg-light mb-3 styled">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h1>{{my_blog.title}}</h>
-                                <div class="card-text">
-                                    <h3>{{my_blog.blog}}</h3>
-                                    <div class="card-footer">
-                                       Created by: {{my_blog.author}} <br>
-                                       <button> <a href="/comment/{{my_blog.id}}"></a> </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+</div>
+</div>
 {% endblock %}
+
+
+
