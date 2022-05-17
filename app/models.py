@@ -15,11 +15,13 @@ class User(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
-    blogs = db.relationship('Blog',backref='user',lazy='dynamic')
+    blog = db.relationship('Blog',backref='user',lazy='dynamic')
     pass_secure =db.Column(db.String(255))
     email=db.Column(db.String,unique=True)
     bio=db.Column(db.String(255))
     profile_pic_path=db.Column(db.String())
+    comment = db.relationship('Comment',backref = 'user',lazy = "dynamic")
+    
 
     @property
     def password(self):
@@ -54,16 +56,6 @@ class Blog(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    @classmethod
-    def get_user_blogs(cls,user):
-        user_blogs = Blog.query.filter_by(user = user).all()
-        return user_blogs
-
-    @classmethod
-    def viewblogs(cls):
-        blogs = Blog.query.all()
-        return blogs
-
     def delete_blog(self):
         db.session.delete(self)
         db.session.commit()
@@ -86,12 +78,6 @@ class Comment(db.Model):
     def delete_comment(self):
         db.session.delete(self)
         db.session.commit()
-
-    @classmethod
-    def view_comments(cls,blog_id):
-        comments = Comments.query.filter_by(blog_id = blog_id).all()
-        return comments
-
 
     def __repr__(self):
         return f'comment:{self.comment}'        

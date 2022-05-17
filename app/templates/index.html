@@ -3,11 +3,10 @@
 {% import 'macros.html' as macro %}
 
 
-
-        {% block content%}
+{% block content%}
 <div class="container-fluid">
     <div class="jumbotron">
-        <div class="card" style="margin-top: 1px;align-items: center;"></div>
+        <div class="card" style="margin-top: 1px;padding-top: 0%;"></div>
 			<figure class="text-center">
 				<blockquote class="blockquote">
 					<p>{{ quotes.quote }}</p>
@@ -20,39 +19,10 @@
 	</div>
 </div>
 <h1 style="margin-bottom: 2px;text-align: center;">FEATURED BLOGS</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card-deck">
-                {% for my_blog in blogs %}
-                <div class="col-md-8">
-
-                    <div class="card bg-light mb-3 styled">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h1>
-                                    {{my_blog.title}}
-                                </h1>
-
-                                <div class="card-text">
-                                    <h3>
-                                        {{my_blog.blog}}
-
-                                    </h3>
 
 
-
-                                    <div class="card-footer">
-                                        Created by: {{my_blog.author}} <br>
-                                        <button> <a href="/comment/{{my_blog.id}}"></a> </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+        <div class="div">
+            {{macro.displayblog(blog)}}
         </div>
 {% endblock %}
 
