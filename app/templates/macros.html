@@ -1,15 +1,14 @@
 {% macro displayblog(blog)%}
 {% if  blog%}
     {%for blog in blog%}
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card" >
             <div class="well well-lg">
                 <h4>{{blog.title}}</h4>
                 <p>{{blog.blog}}</p>
 				<p>Created by: {{blog.author}}</p>
-            
-            <button><a href="{{url_for("main.comment",blog_id=blog.id)}}">Comment</a></button>
-            <button><a href="{{url_for("main.edit_blogs",id=blog.id)}}">Edit</a>{{blog.edit_blogs}}</button>
-            <button><a href="{{url_for("main.delete_blog",blog_id=blog.id)}}">Delete</a></button>
+                <a href="{{url_for("main.comment",blog_id=blog.id)}}"class="btn btn-info -center" style="margin-top: 2%;"id=btn>Comment</a>
+                <a href="{{url_for("main.edit_blogs",id=blog.id)}}"class="btn btn-info -center" style="margin-top: 2%;">Edit</a>
+                <a href="{{url_for("main.delete_blog",blog_id=blog.id)}}"class="btn btn-info -center" style="margin-top: 2%;">Delete</a>
             
             </div>
         </div>

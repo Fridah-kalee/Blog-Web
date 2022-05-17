@@ -5,13 +5,14 @@
     <div class="row">
         {% if comments %}
             <div class="col-md-7" >
-                <h3 class="text-center">All comments for the post</h3>
+                <h3 class="text-center" style="color: rgb(0, 204, 255);">All comments for the blog;</h3>
+                <hr>
                     {% for comment in comments %}
                         <div class="card w-90 mb-3" >
                             <div class="card-body">
-                                <h5>{{comment.blog.title}}</h5>
-                                 <p class="card-title">{{ comment.comment }}</p>
-                                 <p class="card-text">{{comment.user.username}}</p>
+                                <h5>Title: {{ comment.blog.title }}</h5>
+                                 <p class="card-title">Comment: {{ comment.comment }}</p>
+                                 <p class="card-text">Writer: {{ comment.user.username }}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -21,7 +22,7 @@
     {%else%}
     <div class="card w-90 mb-3">
         <div class="card-body">
-            <p class="card-title" style="color: black;">Comment here;</p>
+            <p class="card-title" style="color: rgb(0, 204, 255);">Comment here;</p>
         </div>
     </div>
     <div class="col-md-5">{{wtf.quick_form(form)}}</div>

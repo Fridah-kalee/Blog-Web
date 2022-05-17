@@ -1,0 +1,8 @@
+body{
+    background-image: url('https://img.freepik.com/free-photo/pink-gold-round-confetti-pink-pastel-background-template-advertising-blog-discounts-text_121946-1392.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#btn{
+    border-radius: 3px;
+}

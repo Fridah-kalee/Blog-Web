@@ -2,23 +2,27 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 {% import 'macros.html' as macro %}
 
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
 {% block content%}
-<div class="container-fluid">
-    <div class="jumbotron">
+<div class="jumbotron" style="font-style: italic;background-color: transparent;">
         <div class="card" style="margin-top: 1px;padding-top: 0%;"></div>
 			<figure class="text-center">
 				<blockquote class="blockquote">
+					<p style="color: rgb(0, 204, 255);">Blog-Web</p>
 					<p>{{ quotes.quote }}</p>
 				</blockquote>
-				<figcaption class="blockquote-footer">
+				<figcaption class="blockquote-footer" style="font-style: bold;">
 					<cite title="Source Title"> ~~{{quotes.author}}</cite>
 				</figcaption>
 			</figure>
 		</div>
 	</div>
-</div>
-<h1 style="margin-bottom: 2px;text-align: center;">FEATURED BLOGS</h1>
+<h1 style="margin-bottom: 2px;text-align: center;">I BLOG ABOUT IT</h1>
+<hr>
 
 
         <div class="div">
