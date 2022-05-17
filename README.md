@@ -2,12 +2,12 @@
 ## Author
 Fridah Kalee
 ## Description
-This is Flask personal blogging website where you can create and share your opinions and other users can view and comment on them also displays random quotes to inspire the users.
+This is a Flask personal blogging website where you can create and share your opinions and other users can view and comment on them also displays random quotes to inspire the users.
 ## Installation Requirements
 Clone this repository in your terminal
 
 1. https://github.com/Fridah-kalee/Blog-Web.git
-2. cd Blog-Web
+2. Cd Blog-Web
 3. Create virtual environment
     * python3.9 -m venv --without-pip virtual
 4. Activate virtual environment
@@ -27,11 +27,11 @@ Clone this repository in your terminal
     * python3.9 manage.py test
 13. Navigate to http://127.0.0.1:5000/ or whatever is mentioned in the terminal as the development server to open the application
 ## Technologies Used
-Python 3.9
-HTML, CSS and Bootstrap
-Flask Framework
-Postgressql
-Heroku
+* Python 3.9
+* HTML, CSS and Bootstrap
+* Flask Framework
+* Postgressql
+* Heroku
 ## Behaviour Driven Development
 * A user can see the blogs posted by other people
 * A user can create an account and sign in to add blogs.
